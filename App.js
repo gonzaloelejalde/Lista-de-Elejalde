@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState} from 'react';
+import { useState} from 'react';
 import { StyleSheet, TextInput, View, Button, Text, FlatList, Alert, TouchableOpacity, Pressable} from 'react-native';
 import Modal from './components/Modal';
+import Boton from './components/Boton';
 
 export default function App() {
   const [textItem, setTextItem] = useState("")
@@ -32,9 +32,11 @@ export default function App() {
     setModalVisible(false)
   }
 
+
   const renderItem = ({item}) => (
     <TouchableOpacity style = {styles.renderItem} onPress = {() => selectedItem(item.id)}>
-      <Text>- {item.value}</Text>
+      <Text style = {styles.itemList}>- {item.value}</Text>
+      <Boton/>
     </TouchableOpacity>
   )
 
@@ -45,7 +47,7 @@ export default function App() {
         <Button title="Agregar" color = "purple" onPress = {addItem}/>
       </View>
       <View>
-        <Text style = {styles.textoEliminar}>Toque sobre un elemento para eliminarlo</Text>
+        <Text style = {styles.textoEliminar}>Tocar sobre un elemento para eliminarlo</Text>
         <FlatList 
           data = {itemList}
           renderItem = {renderItem}
@@ -77,6 +79,15 @@ const styles = StyleSheet.create({
     width: 200,
   },
   textoEliminar: {
-    marginLeft: 15
+    marginLeft: 15,
+    marginBottom: 25,
+  },
+  itemList: {
+    fontSize: 25,
+    marginBottom: 20
+  },
+  green: {
+    
   }
 });
+

@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Pressable, Button, Modal as NewModal } from 're
 import React from 'react'
 
 const Modal = ({isVisible, actionDeleteItem}) => {
-    // const {isVisible} = props
     return (
         <NewModal
             animationType="fade"
